@@ -1,0 +1,7 @@
+[Bb]in/
+[Oo]bj/
+*.suo
+*.exe
+.vs/
+packages/
+
