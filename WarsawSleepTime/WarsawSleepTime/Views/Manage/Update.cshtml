@@ -1,0 +1,115 @@
+﻿@using Microsoft.Ajax.Utilities
+@using WarsawSleepTime.Shared.Enums
+@model WarsawSleepTime.Models.Models.ManageModels.UpdateUserModel
+@{
+    ViewBag.Title = "Warsaw Sleep Time - Update profile";
+}
+
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="jumbotron highlight-dark keep-top-reason-big">
+    <p class="big white-subtitle">Change your account settings or update some information about you.</p>
+    <hr />
+    @{
+        string imgSrc;
+        if (Model.Image != null)
+        {
+            var base64 = Convert.ToBase64String(Model.Image);
+            imgSrc = $"data:image/gif;base64,{base64}";
+        }
+        else
+        {
+            imgSrc = "../../Content/Images/profile.png";
+        }
+    }
+    @using (Html.BeginForm("FileUpload", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="form-group white-subtitle">
+                <label class="col-md-10 control-label" for="file">Upload image profile:</label>
+                <br />
+                <div class="col-md-10">
+                    <label class="custom-file-upload btn btn-success bot-margin top-margin">
+                        <input type="file" name="file" onchange="readURL(this);" id="file" style="width: 100%;" accept="image/gif, image/jpeg, image/png"/>
+                        Select image
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-10" style="padding-left: 35%;">
+                <div class="circular">
+                    <img id="blah" src="@imgSrc" class="inline" style="width: 300px; height: 300px;" alt="your image"/>
+                </div>
+            </div>
+            <div class="col-md-10" style="padding-left: 43%;">
+                <br/>
+                <input type="submit" class="inline submit btn btn-primary left-margin-small" value="Upload"/>
+            </div>
+            </div>
+    }
+    <br />
+    @using (Html.BeginForm("Update", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group white-subtitle">
+            @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", Value = Model.FirstName })
+            </div>
+        </div>
+        <div class="form-group white-subtitle">
+            @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", Value = Model.LastName })
+            </div>
+        </div>
+        <div class="form-group white-subtitle">
+            @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10 form-group-sm">
+                @Html.DropDownListFor(m => m.Gender, new[]
+                {
+                    new SelectListItem {Text = Gender.Male.ToString(), Value = Gender.Male.ToString()},
+                    new SelectListItem {Text = Gender.Female.ToString(), Value = Gender.Female.ToString()}
+                }, new { @class = "form-control", Value = Model.Gender })
+            </div>
+        </div>
+                <div class="form-group white-subtitle">
+                    @Html.LabelFor(m => m.DateTime, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10 form-group-sm">
+                        @Html.TextBoxFor(x => x.DateTime, "{0:yyyy-MM-dd}", new { @class = "form-control", Value = Model.DateTime?.ToString("yyyy-MM-dd") ?? "" })
+                    </div>
+                </div>
+                <div class="form-group white-subtitle">
+                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", Value = Model.PhoneNumber })
+                    </div>
+                </div>
+                <div class="form-group white-subtitle">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-primary" value="Update" />
+                    </div>
+                </div>
+                <div>
+                    @Html.ActionLink("Update your address", "UpdateAddress", "Manage", new { area = "" }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Update your preferences", "UpdatePreferences", "Manage", new { area = "" }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Change password", "ChangePassword", "Manage", new { area = "" }, new { @class = "btn btn-success" })
+                </div>
+    }
+</div>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(300)
+                    .height(300);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

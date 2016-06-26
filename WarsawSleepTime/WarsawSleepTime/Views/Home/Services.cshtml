@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Warsaw Sleep Time - Services";
+}
+<div class="container highlight-dark">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="page-header white-subtitle">Our services</h2>
+            <p class="white-subtitle">As a registered user you are able to find a place to sleep which perfectly fits your requiremenents. Also you can find new friends or improve your language skills. There are many informations on the portal about palces to rent or hotels in Warsaw. We wish you a pleasant searching :)</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="page-header">About company</h2>
+            <p class="white-subtitle">By clicking the button below you will be redirected to about company page.</p>
+            <input type="button" class="btn btn-primary" value="Click !" onclick="location.href = '@Url.Action("About", "Home")'"/>
+        </div>
+    </div>
+    <img class="img-responsive top-margin" src="../../Content/Images/cs.jpg"/>
+    <div class="empty">
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="../../Content/Images/friends.jpg" class="img-responsive">
+            <h3>Meet new friends</h3>
+            <p>During your travel you can meet new people. That's so exciting!</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="../../Content/Images/language.png" class="img-responsive">
+            <h3>Improve language</h3>
+            <p>You can also practise your language skills with native speakers around the world :)</p>
+        </div>
+        <div class="col-sm-4">
+            <img src="../../Content/Images/travel.jpg" class="img-responsive">
+            <h3>Travel</h3>
+            <p>And finally, you can fulfill your traveling experience by hanging out with local people.</p>
+        </div>
+    </div>
+</div>

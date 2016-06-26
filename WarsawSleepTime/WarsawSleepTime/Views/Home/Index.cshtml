@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Warsaw Sleep Time - Home";
+}
+@if (string.IsNullOrEmpty(HttpContext.Current?.User?.Identity?.Name))
+{
+    <div class="marquee">
+        <p>Welcome to Warsaw Sleep Time</p>
+        <p>Please log in to explore the website.</p>
+        <p>Don't have an account? Register a new one.</p>
+    </div>
+}

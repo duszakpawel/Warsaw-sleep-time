@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Warsaw Sleep Time - Contact";
+}
+<div class="col-md-12 highlight-dark keep-top-reason-big">
+    <br/>
+    <h2 class="white-subtitle">Contact us:</h2>
+    <br/>
+    <br/>
+    <address>
+        Warsaw Sleep Time<br/>
+        Polna Street, WA 98052-6399<br/>
+        P:+48596079807
+    </address>
+    <address class="black">
+        <strong>Support:</strong> <a href="mailto:Support@example.com">support@warsawsleeptime.com</a><br/>
+    </address>
+    <div id="minimap"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/contact")
+}
+

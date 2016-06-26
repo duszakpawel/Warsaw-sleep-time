@@ -1,0 +1,48 @@
+﻿@using WarsawSleepTime.Shared.Enums
+@model WarsawSleepTime.Models.Models.ManageModels.UpdatePreferencesViewModel
+@{
+    ViewBag.Title = "Warsaw Sleep Time - Update Preferences";
+}
+<div class="jumbotron highlight-dark keep-top-reason-big fillheight">
+    <div class="chosen-container">
+        @using (Html.BeginForm("UpdatePreferences", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div>
+                <h4 class="white-subtitle top-margin">Choose known languages:</h4>
+            </div>
+            <div class="top-margin">
+                @Html.ListBoxFor(x => x.ChosenLanguages, new MultiSelectList(Model.AvailableLanguages, "Id", "Name"), new { @class = "chosen-select wide top-margin", multiple = "multiple", @tabindex = "4" })
+            </div>
+            <div class="top-margin">
+                <h4 class="white-subtitle">Choose other preferences:</h4>
+            </div>
+            <div class="top-margin">
+                @Html.ListBoxFor(x => x.ChosenFeatures, new MultiSelectList(Model.AvailableFeatures, "Id", "Name"), new {@class = "chosen-select wide top-margin", multiple = "multiple", @tabindex = "4"})
+            </div>
+            <div class="form-group white-subtitle top-margin">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-primary" value="Update preferences" />
+                </div>
+            </div>
+        }
+    </div>
+    <div>
+        @Html.ActionLink("Update your address", "UpdateAddress", "Manage", new { area = "" }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Update your profile", "Update", "Manage", new { area = "" }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Change password", "ChangePassword", "Manage", new { area = "" }, new { @class = "btn btn-success" })
+    </div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://harvesthq.github.io/chosen/chosen.jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.chosen-select').chosen();
+        $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
+    });
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/chosen")
+}

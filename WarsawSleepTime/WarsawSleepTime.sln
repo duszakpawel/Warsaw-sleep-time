@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer", "WebServer\WebServer.csproj", "{22A268FF-EF64-44A8-B461-5FD521BE0570}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarsawSleepTime", "WarsawSleepTime\WarsawSleepTime.csproj", "{88553E69-232A-47E9-A358-3FA85226AA59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarsawSleepTime.Entities", "WarsawSleepTime.Entities\WarsawSleepTime.Entities.csproj", "{480F9DC8-3900-4641-B16A-D163C3C84455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarsawSleepTime.Models", "WarsawSleepTime.Models\WarsawSleepTime.Models.csproj", "{AE55E972-2152-43C1-9BC2-CA1C916A9E8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarsawSleepTime.Shared", "WarsawSleepTime.Shared\WarsawSleepTime.Shared.csproj", "{86F5136D-1B51-4D11-9D10-540AF6F1E1C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarsawSleepTime.Algorithms", "WarsawSleepTime.Algorithms\WarsawSleepTime.Algorithms.csproj", "{9E6914C5-14F5-4E8B-9145-552CAC342AF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{22A268FF-EF64-44A8-B461-5FD521BE0570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22A268FF-EF64-44A8-B461-5FD521BE0570}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22A268FF-EF64-44A8-B461-5FD521BE0570}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22A268FF-EF64-44A8-B461-5FD521BE0570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88553E69-232A-47E9-A358-3FA85226AA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88553E69-232A-47E9-A358-3FA85226AA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88553E69-232A-47E9-A358-3FA85226AA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88553E69-232A-47E9-A358-3FA85226AA59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{480F9DC8-3900-4641-B16A-D163C3C84455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{480F9DC8-3900-4641-B16A-D163C3C84455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{480F9DC8-3900-4641-B16A-D163C3C84455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{480F9DC8-3900-4641-B16A-D163C3C84455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE55E972-2152-43C1-9BC2-CA1C916A9E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE55E972-2152-43C1-9BC2-CA1C916A9E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE55E972-2152-43C1-9BC2-CA1C916A9E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE55E972-2152-43C1-9BC2-CA1C916A9E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F5136D-1B51-4D11-9D10-540AF6F1E1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F5136D-1B51-4D11-9D10-540AF6F1E1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F5136D-1B51-4D11-9D10-540AF6F1E1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F5136D-1B51-4D11-9D10-540AF6F1E1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E6914C5-14F5-4E8B-9145-552CAC342AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6914C5-14F5-4E8B-9145-552CAC342AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6914C5-14F5-4E8B-9145-552CAC342AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6914C5-14F5-4E8B-9145-552CAC342AF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

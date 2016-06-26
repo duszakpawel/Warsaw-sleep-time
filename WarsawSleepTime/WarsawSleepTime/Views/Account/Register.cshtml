@@ -1,0 +1,78 @@
+﻿@using WarsawSleepTime.Shared.Enums
+@model WarsawSleepTime.Models.Models.AccountModels.RegisterModel
+@{
+    ViewBag.Title = "Warsaw Sleep Time - Register";
+}
+<div class="highlight-dark keep-top-reason-big">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="col-md-12">
+            <br />
+            <h4 class="white-subtitle">Create a new account.</h4>
+            <br />
+        </div>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10 form-group-sm">
+                @Html.DropDownListFor(m => m.Gender, new[]
+            {
+                new SelectListItem {Text = "Male", Value = Gender.Male.ToString()},
+                new SelectListItem {Text = "Female", Value = Gender.Female.ToString()}
+            }, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.DateTime, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10 form-group-sm">
+                @Html.TextBoxFor(x => x.DateTime, "{0:yyyy-MM-dd}", new { @class = "form-control", @placeholder = "year-month-day" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label white-subtitle" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-success" value="Register" />
+            </div>
+        </div>
+        <br />
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

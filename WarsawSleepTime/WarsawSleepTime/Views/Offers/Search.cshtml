@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Warsaw Sleep Time - Search offers";
+}
+
+<div class="highlight-dark keep-top-reason-big">
+    <div class="container-offer top-margin bot-margin left-margin">
+        <br />
+        <h2 class="page-header top-margin white-subtitle">Find a place to sleep</h2>
+        <div class="offer-container bot-margin">
+            <div class="form-group white-subtitle inbl">
+                <label for="street">Street:</label>
+                <input id="street" type="text" class="form-control">
+            </div>
+            <div class="form-group white-subtitle inbl">
+                <label for="number">Number:</label>
+                <input id="number" type="number" class="form-control">
+            </div>
+            <div class="form-group white-subtitle inbl">
+                <label for="date">Date:</label>
+                <input id="date" data-format="yyyy-MM-dd" type="date" placeholder="2016-05-06" class="form-control datepicker" />
+            </div>
+            <br />
+            <div class="form-group white-subtitle inbl">
+                <label class="checkbox-inline"><br/><input id="hotelsCheck" type="checkbox">Hotels</label>
+                <label class="checkbox-inline"><br /><input id="hostelsCheck" type="checkbox">Hostels</label>
+                <label class="checkbox-inline"><br /><input id="dormitoriesCheck" type="checkbox">Dormitories</label>
+                <label class="checkbox-inline"><br /><input id="freeCheck" type="checkbox">Free ofers</label>
+                <label class="checkbox-inline"><br /><input id="preferencesCheck" type="checkbox">Match personal preferences</label>
+            </div>
+            <br />
+            <div class="form-group white-subtitle inbl">
+                <label for="searchButton"></label>
+                <input id="searchButton" type="button" value="Search" class="btn btn-success" />
+            </div>
+        </div>
+
+        <div id="minimap" class="bot-margin"></div>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+        <br />
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/search")
+}

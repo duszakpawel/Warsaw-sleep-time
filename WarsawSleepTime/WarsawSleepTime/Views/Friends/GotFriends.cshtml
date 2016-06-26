@@ -1,0 +1,52 @@
+﻿@model WarsawSleepTime.Models.Models.FriendsModels.UserFriendsModel
+<br />
+<h2 class="page-header top-margin bot-margin white-subtitle">
+    &nbsp;&nbsp;&nbsp;&nbsp;Your friends
+</h2>
+<div class="top-margin">
+    @{
+        foreach (var friend in Model.Friends)
+        {
+            string imgSrc;
+            if (friend.Image != null)
+            {
+                var base64 = Convert.ToBase64String(friend.Image);
+                imgSrc = $"data:image/gif;base64,{base64}";
+            }
+            else
+            {
+                imgSrc = "../../Content/Images/profile.png";
+            }
+            <div class="inline highlight-light">
+                <div class="inline circular-small">
+                    <img id="blah" src="@imgSrc" class="inline" style="width: 150px; height: 150px;" alt="your image" />
+                </div>
+                <div>
+                    <div class="inline white-subtitle">
+                        @friend.FirstName @friend.LastName
+                    </div>
+                    <br />
+                    <div class="inline left-padding-big">
+                        @Html.ActionLink("Show profile", "ShowProfile", "Friends", new { id = friend.Id }, new { @class = "btn btn-success" })
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(150);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

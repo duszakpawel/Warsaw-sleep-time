@@ -1,0 +1,17 @@
+﻿@model WarsawSleepTime.Models.Models.FriendsModels.UserFriendsModel
+@{
+    ViewBag.Title = "Warsaw Sleep Time - Friends";
+}
+
+<div class="highlight-dark keep-top-reason-big">
+    <div class="container-offer top-margin bot-margin left-margin">
+        @Html.Partial("GotFriends")
+        @Html.Partial("AddFriends")
+        <br/>
+        <br />
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+}
